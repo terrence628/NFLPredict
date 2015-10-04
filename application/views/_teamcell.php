@@ -5,7 +5,14 @@
          <img src="./data/thumb/Katmai_Crater_1980.jpg"/></a>
           */              
 ?>
- <a href="./data/{filename}" data-lightbox="gallery" 
-         data-title="{title} ... Posted {uploaded} by {uploader}, in {category}">
-         <img src="./data/thumb/{filename}"/>
- </a>
+
+<tr class="oneimage">
+<td>{Name}</td>
+<td>{G}</td>
+<td>{Pts/G}</td>
+<td>{TotPts}</td>
+<td>{Scrm Plys}</td>
+<td>{Yds/G}</td>
+<td>{Yds/P}</td>
+<td>{1st/G}</td>
+</tr>
