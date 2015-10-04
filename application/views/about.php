@@ -7,5 +7,5 @@
                     which a SQL script is provided.</p>
                 <h2>Supporting Technologies</h2>
                 <p>The website uses the jquery Javascript framework, so that it can also use the jquery lightbox plugin.</p>
-                <h2>The Story</h2>
+                
                 <p>This website was created for the Spring 2014 session of ACIT2910, at <a href="http://www.bcit.ca" target="_blank">BCIT</a>.</p>
