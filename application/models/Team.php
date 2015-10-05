@@ -24,6 +24,5 @@ class Team extends CI_Model {
         $this -> db -> order_by("id", "asc");
         $query = $this -> db -> get('roster');
         return $query -> result_array();
-    }
-    
+    }   
 }

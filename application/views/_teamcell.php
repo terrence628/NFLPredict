@@ -1,3 +1,4 @@
+
 <?php
 /*
  <a href="./data/Katmai_Crater_1980.jpg" data-lightbox="gallery" 
@@ -16,3 +17,4 @@
 <td>{Yds/P}</td>
 <td>{1st/G}</td>
 </tr>
+
