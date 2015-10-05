@@ -11,7 +11,7 @@
  *
  * @author Terrence
  */
-class Images extends CI_Model {
+class Team extends CI_Model {
     // constructor (a good pratice)
     function __construct()
     {
@@ -19,18 +19,10 @@ class Images extends CI_Model {
     }
     
     //return all images, descending order by post date
-    function all()
+    function roster()
     {
-        $this -> db -> order_by("id", "desc");
-        $query = $this -> db -> get('images');
+        $this -> db -> order_by("id", "asc");
+        $query = $this -> db -> get('roster');
         return $query -> result_array();
-    }
-    
-    function newest()
-    {
-        $this->db->order_by("id", "desc");
-        $this->db->limit(3);
-        $query = $this->db->get('images');
-        return $query->result_array();
-    }
+    }   
 }
