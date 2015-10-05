@@ -45,7 +45,7 @@ class Roster extends Application {
             $this->data['thetable'] = $this->table->generate($rows);
             $this->data['pagetitle'] = "Team Roster";
             
-            $this->data['pagebody'] = 'welcome';
+            $this->data['pagebody'] = 'roster';
             $this->render();
 	}
 }
