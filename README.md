@@ -1,2 +1,0 @@
-# NFLPredict
-#hi from dany
