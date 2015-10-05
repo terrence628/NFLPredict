@@ -1,6 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * League Team class
+ *
+ * @author Dany
+ */
 class League_team extends Application {
 
 	/**
@@ -8,15 +13,12 @@ class League_team extends Application {
 	 */
 	public function index()
 	{
-            //$this->load->view('gallery');
-            
             //get all the league from our model
             $pix = $this->League->league();
             
             //build an array of formatted cells for them
-            foreach($pix as $picture){
+            foreach($pix as $picture)
                 $cells[] = $this->parser->parse('_teamcell', (array)$picture, true);
-            }
             
             // prime the table class
             $this->load->library('table');
@@ -26,7 +28,7 @@ class League_team extends Application {
                 'cell_alt_start' => '<td class="oneimage">'
             );
             $this->table->set_template($parms);
-             $this->table->set_heading('Name', 'G', 'Pts/G', 'TotPts', 'Scrm Plys', 'Yds/G', 'Yds/P', '1st/G');
+            $this->table->set_heading('Name', 'G', 'Pts/G', 'TotPts', 'Scrm Plys', 'Yds/G', 'Yds/P', '1st/G');
             
             // finally! generate the table
             $rows = $this->table->make_columns($cells, 12);
