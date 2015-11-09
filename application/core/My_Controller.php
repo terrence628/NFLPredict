@@ -13,7 +13,7 @@ class Application extends CI_Controller {
     protected $data = array();      // parameters for view components
     protected $id;                  // identifier for our content
     protected $choices = array(//our meun navbar
-        'Home' => '/', 'Gallery' => '/gallery', 'About' => '/about'
+        'Home' => '/', 'team' => '/team', 'About' => '/about'
     );
 
     /**

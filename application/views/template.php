@@ -15,6 +15,7 @@
                 <span class="mynav">
                     <ul>
                         <li><a href="/">Home</a></li>
+                         <li><a href="/team_roster">Team Roster</a></li>
                         <li><a href="/league_team">League</a></li>
                         <li><a href="/about">About</a></li>
                     </ul>
