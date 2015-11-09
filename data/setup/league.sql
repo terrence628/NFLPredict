@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `league` (
 -- Dumping data for table `roster`
 --
 
-INSERT INTO `league` (`id`, `Name`, `G`, `Pts/G`, `TotPts`, `Scrm Plys`, `Yds/G`, `Yds/P`, `1st/G`) VALUES
+/*INSERT INTO `league` (`id`, `Name`, `G`, `Pts/G`, `TotPts`, `Scrm Plys`, `Yds/G`, `Yds/P`, `1st/G`) VALUES
 (1, 'Indianapolis Colts', 3, 18.7, 56, 185, 341.7, 5.5, 20.0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

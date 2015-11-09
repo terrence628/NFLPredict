@@ -1,3 +1,3 @@
 {thetable}
 
-<h1>The team , complete :)</h1>
+<h1>The team, complete :)</h1>
