@@ -25,4 +25,11 @@ class Team extends CI_Model {
         $query = $this -> db -> get('roster');
         return $query -> result_array();
     }   
+        //return all images, descending order by post date
+    function roster_name()
+    {
+        $this -> db -> order_by("name", "asc");
+        $query = $this -> db -> get('roster');
+        return $query -> result_array();
+    }   
 }

@@ -28,10 +28,10 @@ class League_team extends Application {
                 'cell_alt_start' => '<td class="oneimage">'
             );
             $this->table->set_template($parms);
-            $this->table->set_heading('Name', 'G', 'Pts/G', 'TotPts', 'Scrm Plys', 'Yds/G', 'Yds/P', '1st/G');
+            $this->table->set_heading('Logo', 'Name', 'Conference', 'division');
             
             // finally! generate the table
-            $rows = $this->table->make_columns($cells, 12);
+            $rows = $this->table->make_columns($cells,5);
             $this->data['thetable'] = $this->table->generate($rows);
             $this->data['pagetitle'] = "League Teams";
             

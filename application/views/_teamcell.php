@@ -7,14 +7,11 @@
           */              
 ?>
 
+
 <tr class="oneimage">
+<td><img src="./data/teams/{mug}"/></td>
 <td>{Name}</td>
-<td>{G}</td>
-<td>{Pts/G}</td>
-<td>{TotPts}</td>
-<td>{Scrm Plys}</td>
-<td>{Yds/G}</td>
-<td>{Yds/P}</td>
-<td>{1st/G}</td>
+<td>{conference}</td>
+<td>{division}</td>
 </tr>
 
