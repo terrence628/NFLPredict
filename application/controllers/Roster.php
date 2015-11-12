@@ -38,7 +38,7 @@ class Roster extends Application {
                 'cell_alt_start' => '<td class="oneimage">'
             );
             $this->table->set_template($parms);
-            $this->table->set_heading('No', 'Name', 'Pos', 'Status', 'Height', 'Weight', 'Birthdate', 'Exp', 'College');
+            $this->table->set_heading('Jersey No','Mugshot', 'Name', 'Pos', 'Status', 'Height', 'Weight', 'Birthdate', 'Exp', 'College');
             
             // finally! generate the table
             $rows = $this->table->make_columns($cells, 12);
