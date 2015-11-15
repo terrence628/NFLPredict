@@ -18,34 +18,43 @@ class Roster extends Application {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
+	public function index($page = 0)
 	{
-            //$this->load->view('welcome');
+            $this->load->library('pagination');
+            $this->load->library('table');
             
-             // get the team roster from our model
-            $pix = $this->Team->roster();
-            
+            $config = array();
+            $config['base_url'] = "/roster";
+            $config['total_rows'] = 3;
+            $config['per_page'] = 1; 
+            $config['num_links'] = 3;
+            //$config['next_link'] = 'Next';
+            //$config['prev_link'] = 'Previous';
+            $this->pagination->initialize($config);
+         
+            $pix = $this->db->get('roster', $config['per_page'], $page * $config['per_page'])->result_array();
+           
             // build an array of formatted cells for them
             foreach($pix as $picture)
-                $cells[] = $this->parser->parse('_rostercell', (array)$picture, true);
+                $cells[] = $this->parser->parse('_rostercell', $picture, true);
             
             // prime the table class
-            $this->load->library('table');
             $parms = array(
                 'table_open' => '<table>',
-                
                 'cell_start' => '<td class="oneimage">',
                 'cell_alt_start' => '<td class="oneimage">'
             );
             $this->table->set_template($parms);
-            $this->table->set_heading('No', 'Name', 'Pos', 'Status', 'Height', 'Weight', 'Birthdate', 'Exp', 'College');
+            $this->table->set_heading('player number', 'Name', 'Pos', 'Status', 'Height', 'Weight', 'Birthdate', 'Exp', 'College');
             
             // finally! generate the table
             $rows = $this->table->make_columns($cells, 12);
             $this->data['thetable'] = $this->table->generate($rows);
             $this->data['pagetitle'] = "Team Roster";
-            
             $this->data['pagebody'] = 'roster';
+            
+            $this->data['pagination_links'] = $this->pagination->create_links();
+            
             $this->render();
 	}
 }
