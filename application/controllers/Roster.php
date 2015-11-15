@@ -1,4 +1,4 @@
-    <?php
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Roster extends Application {
@@ -25,15 +25,15 @@ class Roster extends Application {
             
             $config = array();
             $config['base_url'] = "/roster";
-            $config['total_rows'] = 3;
-            $config['per_page'] = 1; 
+            $config['total_rows'] = $this->db->count_all('roster');
+            $config['per_page'] = 12; 
             $config['num_links'] = 3;
-            //$config['next_link'] = 'Next';
-            //$config['prev_link'] = 'Previous';
+            //$config['uri_segment'] = 3;
+
             $this->pagination->initialize($config);
          
             $pix = $this->db->get('roster', $config['per_page'], $page * $config['per_page'])->result_array();
-           
+            //$pix = $this->db->get('roster', $config['per_page'], $this->uri->segment(3,0))->result_array();
             // build an array of formatted cells for them
             foreach($pix as $picture)
                 $cells[] = $this->parser->parse('_rostercell', $picture, true);
@@ -45,7 +45,8 @@ class Roster extends Application {
                 'cell_alt_start' => '<td class="oneimage">'
             );
             $this->table->set_template($parms);
-            $this->table->set_heading('player number', 'Name', 'Pos', 'Status', 'Height', 'Weight', 'Birthdate', 'Exp', 'College');
+
+            $this->table->set_heading('Jersey No','Mugshot', 'Name', 'Pos', 'Status', 'Height', 'Weight', 'Birthdate', 'Exp', 'College');
             
             // finally! generate the table
             $rows = $this->table->make_columns($cells, 12);

@@ -8,7 +8,10 @@
 
 <tr class="oneimage">
 <td>{player_number}</td>
-<td>{Name}</td>
+<td> <a href="./data/players/{mug}" data-lightbox="gallery" >
+         <img src="./data/players/{mug}"/>
+ </a></td>
+ <td><a href="./data/players/{mug}">{Name}</td>
 <td>{Pos}</td>
 <td>{Status}</td>
 <td>{Height}</td>
