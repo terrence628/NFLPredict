@@ -22,6 +22,7 @@ class Roster extends Application {
 	{
             $this->load->library('pagination');
             $this->load->library('table');
+            $this->load->model("paging");
             
             $config = array();
             $config['base_url'] = "/roster";
@@ -31,8 +32,9 @@ class Roster extends Application {
             //$config['uri_segment'] = 3;
 
             $this->pagination->initialize($config);
-         
-            $pix = $this->db->get('roster', $config['per_page'], $page * $config['per_page'])->result_array();
+            
+            $offset = $this->uri->segment(2) ? $this->uri->segment(2) : 0;
+            $pix = $this->paging->page_records($config['per_page'], $offset);
             //$pix = $this->db->get('roster', $config['per_page'], $this->uri->segment(3,0))->result_array();
             // build an array of formatted cells for them
             foreach($pix as $picture)
