@@ -1,6 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * About class
+ *
+ * @author Dany
+ */
 class About extends Application {
 
 	/**
@@ -8,8 +13,8 @@ class About extends Application {
 	 */
 	public function index()
 	{
-            //$this->load->view('about');
             $this->data['pagebody'] = 'about';
+            $this->data['pagetitle'] = "About Page";
             $this->render();
 	}
 }
