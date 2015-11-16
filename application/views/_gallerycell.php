@@ -7,5 +7,5 @@
 ?>
 
 
-<img src="../data/players/{mug}"/><br>
-<a class="name" href="player/{id}">{Name}</a>
+<img src="../../data/players/{mug}"/><br>
+<a class="name" href="/player/{id}">{Name} - #{player_number}</a>
