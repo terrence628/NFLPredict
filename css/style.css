@@ -14,3 +14,6 @@ body {background-color: gray;}
 .alone { clear:both; margin:10px;}
 #footer {font-family: Arial, Verdana, Helvetica ; font-size: 9pt; font-style:italic; text-align:center;}
 .oneimage {padding:1em; width:300px;text-align:center; color: white}
+.playerdetail {font-size:12pt; color: white}
+.button{width:100px;text-align:center; }
+.name{font-size:16pt;}

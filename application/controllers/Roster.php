@@ -18,26 +18,35 @@ class Roster extends Application {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index($page = 0)
-	{
-            $this->load->library('pagination');
-            $this->load->library('table');
-            
-            $config = array();
-            $config['base_url'] = "/roster";
-            $config['total_rows'] = $this->db->count_all('roster');
-            $config['per_page'] = 12; 
-            $config['num_links'] = 3;
-            //$config['uri_segment'] = 3;
 
-            $this->pagination->initialize($config);
-         
-            $pix = $this->db->get('roster', $config['per_page'], $page * $config['per_page'])->result_array();
-            //$pix = $this->db->get('roster', $config['per_page'], $this->uri->segment(3,0))->result_array();
-            // build an array of formatted cells for them
+        function index()
+	{
+            $pix = $this->Team->roster();
+            $action = $this->input->post('order');
+            $type = $this->input->post('type');
+    // Decide what to do
+            switch ($action)
+            {
+                case 'Name': $pix = $this->Team->roster_name(); break;
+                case 'Jersey': $pix = $this->Team->roster_jersey(); break;
+                case 'Position': $pix = $this->Team->roster_position(); break;
+            }
+            
+            switch ($type)
+            {
+                case 'Table': ; break;
+                case 'Gallery': $this->gallery(); break;
+            }
+            //$this->load->view('welcome');
+            
+             // get the team roster from our model
+            //$pix = $this->Team->roster();
+
+  
             foreach($pix as $picture)
                 $cells[] = $this->parser->parse('_rostercell', $picture, true);
             
+            $this->load->library('table');
             // prime the table class
             $parms = array(
                 'table_open' => '<table>',
@@ -45,17 +54,88 @@ class Roster extends Application {
                 'cell_alt_start' => '<td class="oneimage">'
             );
             $this->table->set_template($parms);
+            $this->table->set_heading('Jersey No', 'Name', 'Pos', 'Status', 'Height', 'Weight', 'Birthdate', 'Exp', 'College');
 
-            $this->table->set_heading('Jersey No','Mugshot', 'Name', 'Pos', 'Status', 'Height', 'Weight', 'Birthdate', 'Exp', 'College');
-            
             // finally! generate the table
-            $rows = $this->table->make_columns($cells, 12);
+            $rows = $this->table->make_columns($cells, 10);
             $this->data['thetable'] = $this->table->generate($rows);
-            $this->data['pagetitle'] = "Team Roster";
+
+            $this->data['pagetitle'] = "Team Roster - Table";
+            
+
             $this->data['pagebody'] = 'roster';
-            
-            $this->data['pagination_links'] = $this->pagination->create_links();
-            
+
             $this->render();
 	}
+        function gallery(){
+            	
+            //$this->load->view('welcome');
+            
+             // get the team roster from our model
+            $pix = $this->Team->roster();
+            $action = $this->input->post('order');
+    // Decide what to do
+            switch ($action)
+            {
+                case 'Name': $pix = $this->Team->roster_name(); break;
+                case 'Jersey': $pix = $this->Team->roster_jersey(); break;
+                case 'Position': $pix = $this->Team->roster_position(); break;
+            }
+            // build an array of formatted cells for them
+            foreach($pix as $picture)
+                $cells[] = $this->parser->parse('_gallerycell', (array)$picture, true);
+            
+            // prime the table class
+            $this->load->library('table');
+            $parms = array(
+                'table_open' => '<table>',
+            
+                'cell_start' => '<td class="oneimage">',
+                'cell_alt_start' => '<td class="oneimage">'
+            );
+            $this->table->set_template($parms);
+            //$this->table->set_heading('Jersey No','Mugshot', 'Name', 'Pos', 'Status', 'Height', 'Weight', 'Birthdate', 'Exp', 'College');
+            
+            // finally! generate the table
+            $rows = $this->table->make_columns($cells, 3);
+            $this->data['thetable'] = $this->table->generate($rows);
+            $this->data['pagetitle'] = "Team Roster - Gallery";
+            
+            $this->data['pagebody'] = 'roster_gallery';
+            $this->render();
+	
+        }
+        function player_info($num){
+   
+             $pix = $this->Team->get($num);
+            
+            // build an array of formatted cells for them
+            foreach($pix as $picture)
+                $cells[] = $this->parser->parse('_justone', (array)$picture, true);
+            
+            // prime the table class
+            $this->load->library('table');
+            $parms = array(
+                'table_open' => '<table>',
+            
+                'cell_start' => '<td class="oneimage">',
+                'cell_alt_start' => '<td class="oneimage">'
+            );
+            $this->table->set_template($parms);
+           // $this->table->set_heading('Jersey No','Mugshot', 'Name', 'Pos', 'Status', 'Height', 'Weight', 'Birthday', 'Exp', 'College');
+            
+            // finally! generate the table
+            $rows = $this->table->make_columns($cells, 1);
+            $this->data['thetable'] = $this->table->generate($rows);
+            $this->data['pagetitle'] = "Team Roster - Player Detail";
+            
+            $this->data['pagebody'] = 'edit'; 
+            $this->render();
+	
+         }
+         
+         function order(){
+             
+             
+         }
 }

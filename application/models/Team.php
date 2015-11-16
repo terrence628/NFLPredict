@@ -32,4 +32,35 @@ class Team extends CI_Model {
         $query = $this -> db -> get('roster');
         return $query -> result_array();
     }   
+    
+    function roster_jersey()
+    {
+        $this -> db -> order_by("player_number", "asc");
+        $query = $this -> db -> get('roster');
+        return $query -> result_array();
+    }  
+    
+    function roster_position()
+    {
+        $this -> db -> order_by("Pos", "asc");
+        $query = $this -> db -> get('roster');
+        return $query -> result_array();
+    }  
+    
+    function get($which)
+    {
+        $this -> db -> where("id = $which");
+        $query = $this -> db -> get('roster');
+        return $query -> result_array();
+    }
+    
+    function update_player($id,$data){
+        $this->db->where('id', $id);
+        $this->db->update('roster', $data);
+    }
+    
+    function delete_player($id){
+        $this->db->where('id', $id);
+        $this->db->delete('roster');
+    }
 }
