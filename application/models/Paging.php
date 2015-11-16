@@ -21,7 +21,12 @@ class Paging extends CI_Model {
     //return all images, descending order by post date
     function page_records($per_page, $offset)
     {
-        $query = $this->db->query(" SELECT * FROM roster  LIMIT $offset, $per_page");
+        $sort = $this->session->userdata("ordering");
+        if ($sort) {
+            $query = $this->db->query(" SELECT * FROM roster ORDER BY $sort ASC LIMIT $offset, $per_page");
+        } else {
+            $query = $this->db->query(" SELECT * FROM roster LIMIT $offset, $per_page");
+        }
         if ($query->num_rows() > 0)
         {
             foreach ($query->result() as $f)
