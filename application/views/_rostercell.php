@@ -8,7 +8,7 @@
 
 <tr class="oneimage">
 <td>{player_number}</td>
-<td><a href="roster/{id}">{Name}</td>
+<td><a href="player/{id}">{Name}</td>
 <td>{Pos}</td>
 <td>{Status}</td>
 <td>{Height}</td>

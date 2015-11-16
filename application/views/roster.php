@@ -9,8 +9,8 @@ View Type<button type="Submit" name="type" value="Table">Table</button>
     <button type="Submit" name="type" value="Gallery">Gallery</button>
     </form>
 {thetable}
-<h1>This is The team roster</h1>
-<p>The data above are mock data from local db.</p>
+
+{pagination_links}
 
 
            

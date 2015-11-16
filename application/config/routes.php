@@ -52,4 +52,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['roster/(:num)'] = "roster/player_info/$1";
+$route['player/(:num)'] = "roster/player_info/$1";
+$route['roster/(:num)'] = 'roster/index/$1';

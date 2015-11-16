@@ -8,4 +8,4 @@
 
 
 <img src="../data/players/{mug}"/><br>
-<a class="name" href="/roster/{id}">{Name}</a>
+<a class="name" href="player/{id}">{Name}</a>
