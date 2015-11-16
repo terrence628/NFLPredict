@@ -1,5 +1,5 @@
 <h1>NFL Predict</h1>
-<form action="/Roster" method="POST">
+<form action="/Roster/gallery" method="POST">
 Order By:<button type="Submit" name="order" value="Name">Name</button>
     <button type="Submit" name="order" value="Jersey">Jersey No</button>
     <button type="Submit" name="order" value="Position">Position</button>

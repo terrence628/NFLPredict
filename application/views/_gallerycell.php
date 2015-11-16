@@ -6,14 +6,6 @@
           */              
 ?>
 
-<tr class="oneimage">
-<td>{player_number}</td>
-<td><a href="roster/{id}">{Name}</td>
-<td>{Pos}</td>
-<td>{Status}</td>
-<td>{Height}</td>
-<td>{Weight}</td>
-<td>{Birthdate}</td>
-<td>{Exp}</td>
-<td>{College}</td>
-</tr>
+
+<img src="../data/players/{mug}"/><br>
+<a class="name" href="/roster/{id}">{Name}</a>
