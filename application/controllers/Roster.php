@@ -33,7 +33,7 @@ class Roster extends Application {
             
             switch ($type)
             {
-                case 'Table': $this->index();; break;
+                case 'Table': ; break;
                 case 'Gallery': $this->gallery(); break;
             }
             //$this->load->view('welcome');
@@ -60,6 +60,7 @@ class Roster extends Application {
             $rows = $this->table->make_columns($cells, 10);
             $this->data['thetable'] = $this->table->generate($rows);
             $this->data['pagetitle'] = "Team Roster - Table";
+            
             
             $this->data['pagebody'] = 'roster';
             $this->render();

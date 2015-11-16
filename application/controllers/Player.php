@@ -47,18 +47,17 @@ class Player extends Application {
                 'College' => $this->input->post('College')
             );
             $this->Team->update_player($id,$data);
-
+            redirect('/Roster',$data);
         }
         
         function Delete(){
             $id = $this->input->post('ID');
             $this->Team->delete_player($id);
-
+            redirect('/Roster',$data);
         }
         
         function Cancel(){
-           
-            
+            redirect('/Roster',$data);
         }
              
          
