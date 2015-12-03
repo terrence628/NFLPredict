@@ -3,18 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ari/Documents/NFLPredict/application/config/database.php</file>
-            <file>file:/C:/Users/ari/Documents/NFLPredict/application/views/index.html</file>
-            <file>file:/C:/Users/ari/Documents/NFLPredict/application/config/config.php</file>
-            <file>file:/C:/Users/ari/Documents/NFLPredict/application/config/autoload.php</file>
-            <file>file:/C:/Users/ari/Documents/NFLPredict/application/models/index.html</file>
-            <file>file:/C:/Users/ari/Documents/NFLPredict/application/config/constants.php</file>
-            <file>file:/C:/Users/ari/Documents/NFLPredict/README.md</file>
-            <file>file:/C:/Users/ari/Documents/NFLPredict/application/views/about.php</file>
-            <file>file:/C:/Users/ari/Documents/NFLPredict/application/config/routes.php</file>
-            <file>file:/C:/Users/ari/Documents/NFLPredict/application/controllers/About.php</file>
-            <file>file:/C:/Users/ari/Documents/NFLPredict/css/style.css</file>
-            <file>file:/C:/Users/ari/Documents/NFLPredict/application/controllers/Welcome.php</file>
+            <file>file:/C:/xampp/htdocs/NFLPredict/application/views/about.php</file>
+            <file>file:/C:/xampp/htdocs/NFLPredict/application/views/_template.php</file>
+            <file>file:/C:/xampp/htdocs/NFLPredict/application/controllers/History.php</file>
+            <file>file:/C:/xampp/htdocs/NFLPredict/application/controllers/League_team.php</file>
+            <file>file:/C:/xampp/htdocs/NFLPredict/application/controllers/Roster.php</file>
+            <file>file:/C:/xampp/htdocs/NFLPredict/application/controllers/About.php</file>
+            <file>file:/C:/xampp/htdocs/NFLPredict/application/views/history.php</file>
+            <file>file:/C:/xampp/htdocs/NFLPredict/application/views/league_team.php</file>
+            <file>file:/C:/xampp/htdocs/NFLPredict/application/views/_teamcell.php</file>
         </group>
     </open-files>
 </project-private>
