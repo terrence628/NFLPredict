@@ -15,6 +15,7 @@ class History extends Application {
 	{
             $this->data['pagebody'] = 'history';
             $this->data['pagetitle'] = "History Page";
+            $this->load->library('table');
             
             $url = "nfl.jlparry.com/rpc";
             $this->load->library('xmlrpc');
@@ -26,7 +27,22 @@ class History extends Application {
             {
                 echo "Error: " . $this->xmlrpc->display_error();
             }
-            print_r($this->xmlrpc->display_response());
+            
+            
+            $dataArray = $this->xmlrpc->display_response();
+            echo "<pre>";
+            //var_dump($dataArray);
+            echo "</pre>";
+            $this->table->set_heading('Team', 'Opponent', 'Date','Score');
+
+            foreach ($dataArray as $data) {
+                unset($data['number']);
+                $this->table->add_row($data);
+            }
+            
+            //echo $this->table->generate();
+            
+            $this->data['historytable'] = $this->table->generate();
             
             $this->render();
 	}
