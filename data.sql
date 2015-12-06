@@ -32,7 +32,12 @@ CREATE TABLE IF NOT EXISTS `league` (
   `Name` varchar(256) NOT NULL,
   `conference` varchar(256) NOT NULL,
   `division` varchar(256) NOT NULL,
-
+  `city` varchar(256) NOT NULL,
+  `team_code` varchar(4) NOT NULL,
+  `standing` int(3) NULL,
+  `points_for` int(4) NULL,
+  `points_against` int(4) NULL,
+  `net_point` int(4) NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
@@ -57,39 +62,40 @@ CREATE TABLE IF NOT EXISTS `roster` (
 -- Dumping data for table `roster`
 --
 
-INSERT INTO `league` ( `id`, `mug`, `Name`, `conference`, `division`) VALUES
-(1, 'New Orleans Saints.gif', 'New Orleans Saints', 'NFC', 'NCS'), 
-(2, 'New England Patriots.gif','New England Patriots', 'NFC', 'NCS'),
-(3, 'Arizona Cardinals.gif','Arizona Cardinals', 'NFC', 'NCW'),
-(4, 'San Diego Chargers.gif','San Diego Chargers', 'AFC', 'ACW'),
-(5, 'Atlanta Falcons.gif','Atlanta Falcons', 'NFC', 'NCS'),
-(6, 'Cincinnati Bengals.gif','Cincinnati Bengals', 'AFC', 'ACN'),
-(7, 'Pittsburgh Steelers.gif','Pittsburgh Steelers', 'AFC', 'ACN'),
-(8, 'Oakland Raiders.gif','Oakland Raiders', 'AFC', 'ACW'),
-(9, 'Houston Texans.gif','Houston Texans', 'AFC', 'ACS'),
-(10, 'Philadelphia Eagles.gif','Philadelphia Eagles', 'NFC', 'NCE'),
-(11, 'New York Jets.gif','New York Jets', 'AFC', 'ACE'),
-(12, 'Carolina Panthers.gif','Carolina Panthers', 'NFC', 'NCS'),
-(13, 'Miami Dolphins.gif','Miami Dolphins', 'AFC', 'ACE'),
-(14, 'Baltimore Ravens.gif','Baltimore Ravens', 'AFC', 'ACN'),
-(15, 'Tampa Bay Buccaneers.gif','Tampa Bay Buccaneers', 'NFC', 'NCS'),
-(16, 'Jacksonville Jaguars.gif','Jacksonville Jaguars', 'AFC', 'AFC'),
-(17, 'Dallas Cowboys.gif','Dallas Cowboys', 'NFC', 'NCE'),
-(18, 'Indianapolis Colts.gif','Indianapolis Colts', 'AFC', 'ACS'),
-(19, 'Seattle Seahawks.gif','Seattle Seahawks', 'NFC', 'NCW'),
-(20, 'Buffalo Bills.gif','Buffalo Bills', 'AFC', 'ACE'),
-(21, 'New York Giants.gif','New York Giants', 'NFC', 'NCE'),
-(22, 'Chicago Bears.gif','Chicago Bears', 'NFC', 'NCN'),
-(23, 'Denver Broncos.gif','Denver Broncos', 'AFC', 'ACW'),
-(24, 'Kansas City Chiefs.gif','Kansas City Chiefs', 'AFC', 'ACW'),
-(25, 'Green Bay Packers.gif', 'Green Bay Packers', 'NFC', 'NCN'),
-(26, 'Detroit Lions.gif','Detroit Lions', 'NFC', 'NCN'),
-(27, 'Cleveland Browns.gif','Cleveland Browns', 'AFC', 'ACN'),
-(28, 'Tennessee Titans.gif','Tennessee Titans', 'AFC', 'ACS'),
-(29, 'Washington Redskins.gif','Washington Redskins', 'NFC', 'NCS'),
-(30, 'Minnesota Vikings.gif', 'Minnesota Vikings', 'NFC', 'NCN'),
-(31, 'St. Louis Rams.gif','St. Louis Rams', 'NFC', 'NCW'),
-(32, 'San Francisco 49ers.gif','San Francisco 49ers', 'NFC', 'NCW');
+INSERT INTO `league` ( `id`, `mug`, `Name`, `conference`, `division`, `city`, `team_code`) VALUES
+(1, 'Arizona Cardinals.gif','Arizona Cardinals', 'NFC', 'NCW', 'Glendale, AZ', 'ARZ'),
+(2, 'Atlanta Falcons.gif','Atlanta Falcons', 'NFC', 'NCS', 'Atlanta, GA', 'ATL'),
+(3, 'Baltimore Ravens.gif','Baltimore Ravens', 'AFC', 'ACN', 'Baltimore, MD', 'BAL'),
+(4, 'Buffalo Bills.gif','Buffalo Bills', 'AFC', 'ACE', 'Orchard Park, NY', 'BUF'),
+(5, 'Carolina Panthers.gif','Carolina Panthers', 'NFC', 'NCS', 'Charlotte, NC', 'CAR'),
+(6, 'Chicago Bears.gif','Chicago Bears', 'NFC', 'NCN', 'Chicago, IL', 'CHI'),
+(7, 'Cincinnati Bengals.gif','Cincinnati Bengals', 'AFC', 'ACN', 'Cincinnati, OH', 'CIN'),
+(8, 'Cleveland Browns.gif','Cleveland Browns', 'AFC', 'ACN', 'Cleveland, OH', 'CLE'),
+(9, 'Dallas Cowboys.gif','Dallas Cowboys', 'NFC', 'NCE', 'Arlington, TX', 'DAL'),
+(10, 'Denver Broncos.gif','Denver Broncos', 'AFC', 'ACW', 'Denver, CO', 'DEN'),
+(11, 'Detroit Lions.gif','Detroit Lions', 'NFC', 'NCN', 'Detroit, MI', 'DET'),
+(12, 'Green Bay Packers.gif', 'Green Bay Packers', 'NFC', 'NCN', 'Green Bay, WI', 'GBY'),
+(13, 'Houston Texans.gif','Houston Texans', 'AFC', 'ACS', 'Houston, TX', 'HOU'),
+(14, 'Indianapolis Colts.gif','Indianapolis Colts', 'AFC', 'ACS', 'Indianapolis, IN', 'IND'),
+(15, 'Jacksonville Jaguars.gif','Jacksonville Jaguars', 'AFC', 'ACS', 'Jacksonville, FL', 'JAC'),
+(16, 'Kansas City Chiefs.gif','Kansas City Chiefs', 'AFC', 'ACW', 'Kansas City, MO', 'KCY'),
+(17, 'Miami Dolphins.gif','Miami Dolphins', 'AFC', 'ACE', 'Miami Gardens, FL', 'MIA'),
+(18, 'Minnesota Vikings.gif', 'Minnesota Vikings', 'NFC', 'NCN', 'Minneapolis, MN', 'MIN'),
+(19, 'New England Patriots.gif','New England Patriots', 'AFC', 'ACE', 'Foxborough, MA','NWE'),
+(20, 'New Orleans Saints.gif', 'New Orleans Saints', 'NFC', 'NCS', 'New Orleans, LA', 'NOR'), 
+(21, 'New York Giants.gif','New York Giants', 'NFC', 'NCE', 'East Rutherford, NJ', 'NYG'),
+(22, 'New York Jets.gif','New York Jets', 'AFC', 'ACE', 'East Rutherford, NJ', 'NYJ'),
+(23, 'Oakland Raiders.gif','Oakland Raiders', 'AFC', 'ACW', 'Oakland, CA', 'OAK'),
+(24, 'Philadelphia Eagles.gif','Philadelphia Eagles', 'NFC', 'NCE', 'Philadelphia, PA', 'PHI'),
+(25, 'Pittsburgh Steelers.gif','Pittsburgh Steelers', 'AFC', 'ACN', 'Pittsburgh, PA', 'PIT'),
+(26, 'San Diego Chargers.gif','San Diego Chargers', 'AFC', 'ACW', 'San Diego, CA', 'SDO'),
+(27, 'Seattle Seahawks.gif','Seattle Seahawks', 'NFC', 'NCW', 'Seattle, WA', 'SEA'),
+(28, 'San Francisco 49ers.gif','San Francisco 49ers', 'NFC', 'NCW', 'Santa Clara, CA', 'SFO'),
+(29, 'St. Louis Rams.gif','St. Louis Rams', 'NFC', 'NCW', 'St. Louis, MO', 'STL'),
+(30, 'Tampa Bay Buccaneers.gif','Tampa Bay Buccaneers', 'NFC', 'NCS', 'Tampa, FL', 'TBY'),
+(31, 'Tennessee Titans.gif','Tennessee Titans', 'AFC', 'ACS', 'Nashville, TN', 'TEN'),
+(32, 'Washington Redskins.gif','Washington Redskins', 'NFC', 'NCE', 'Landover, MD', 'WAS');
+
 
 
 INSERT INTO `roster` (`id`, `mug`, `player_number`, `Name`, `Pos`, `Status`, `Height`, `Weight`, `Birthdate`, `Exp`, `College`) VALUES

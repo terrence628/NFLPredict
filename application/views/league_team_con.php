@@ -11,9 +11,11 @@ calculation?<input type="radio" name="points" value="Net Point" checked>Net Poin
 <input type="radio" name="points" value="Points For">Points For</button>
 <input type="radio" name="points" value="Points Against">Points Against</button><br>
 Points Summary:{points}<br>
-<button type="Submit" name="submit">Go</button>
-<h1>League</h1>
-{thetable}
+<button type="Submit" name="submit">Go</button><br>
+<h1>Conference - AFC</h1>
+{thetable_afc}
+<h1>Conference - NFC</h1>
+{thetable_nfc}
 
 
 </form>
