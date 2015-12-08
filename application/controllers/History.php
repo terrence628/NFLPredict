@@ -34,6 +34,7 @@ class History extends Application {
             //var_dump($dataArray);
             echo "</pre>";
             $this->table->set_heading('Team', 'Opponent', 'Date','Score');
+<<<<<<< HEAD
             
             $parms = array(
                 'table_open' => '<table>',
@@ -41,6 +42,8 @@ class History extends Application {
                 'cell_alt_start' => '<td class="oneimage">'
             );
             $this->table->set_template($parms);
+=======
+>>>>>>> 611b900858e3b39b4250a7b82c2892c3ddd1b1c5
 
             foreach ($dataArray as $data) {
                 unset($data['number']);
