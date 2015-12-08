@@ -104,7 +104,7 @@ class League_team extends Application {
         
         public function Conference()
 	{
-            //get all the league from our model
+            //get afc conference from our model
             $pix = $this->League->Conference("AFC");
             
             //build an array of formatted cells for them
@@ -125,7 +125,7 @@ class League_team extends Application {
             $rows_afc = $this->table->make_columns($cells_afc,7);
             $this->data['thetable_afc'] = $this->table->generate($rows_afc);
             
-            
+            //get nfc conference from table
             $pix2 = $this->League->Conference("NFC");
             
             //build an array of formatted cells for them

@@ -17,6 +17,7 @@
                         <li><a href="/">Home</a></li>
                         <li><a href="/league_team">League</a></li>
                         <li><a href="/roster">Rosters</a></li>
+                        <li><a href="/history">History</a></li>
                         <li><a href="/about">About</a></li>
                     </ul>
                 </span>

@@ -49,4 +49,13 @@ class League extends CI_Model {
         $query = $this -> db -> get('league');
         return $query -> result_array();
     }
+    
+    function dropdown()
+    {
+        //$this->db->select('Name');
+        $this -> db -> where("team_code != 'IND'");
+        $this -> db -> order_by("Name", "asc");
+        $query = $this -> db -> get('league');
+        return $query -> result_array();
+    }
 }
